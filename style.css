@@ -1,0 +1,111 @@
+/* 🌍 Main Map Container */
+#map {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  z-index: 1;
+  font-family: "Poppins", sans-serif; /* modern clean font */
+}
+
+/* ❄️ Sidebar: Glassmorphism Style */
+#sidebar {
+  position: absolute;
+  top: 120px;
+  left: 20px;
+  width: 280px;
+  max-height: 85vh;
+  overflow-y: auto;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  padding: 18px;
+  color: #222;
+  z-index: 999;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Sidebar on small screens → make it bottom bar */
+@media (max-width: 768px) {
+  #sidebar {
+    top: auto;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-height: 50vh;
+  }
+}
+
+/* 🧠 Sidebar Header */
+#sidebar h3 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  color: #111;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 8px;
+}
+
+/* 📋 Device List */
+#device-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 📱 Device Card */
+#device-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  transition: transform 0.2s ease, background 0.3s ease;
+  cursor: pointer;
+}
+
+/* 💫 Hover Effect */
+#device-list li:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* 🎨 Marker Color Indicator */
+.color-box {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1px solid #fff;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+}
+
+/* 🟢 Status Dot */
+.status-dot {
+  width: 10px;
+  height: 10px;
+  background: #4cd137;
+  border-radius: 50%;
+  animation: blink 1.2s infinite;
+  box-shadow: 0 0 8px #4cd137aa;
+  margin-left: 8px;
+}
+
+/* 🔁 Blinking Animation */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* 📱 Scrollbar */
+#sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+#sidebar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
